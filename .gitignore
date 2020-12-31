@@ -1,0 +1,5 @@
+.idea
+spack_complete_me.egg-info
+*.swo
+*.swp
+__pycache__

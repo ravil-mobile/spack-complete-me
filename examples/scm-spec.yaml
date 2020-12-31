@@ -1,0 +1,10 @@
+spec:
+  - tar
+  - automake
+  - autoconf
+  - pkg-config
+  - python3
+  - m4
+  - xz
+  - go
+  - perl
