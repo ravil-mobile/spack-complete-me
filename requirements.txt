@@ -1,2 +1,2 @@
 setuptools
-PyYAML==3.12
+PyYAML==5.3
