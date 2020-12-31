@@ -1,2 +1,3 @@
+wheel
 setuptools
 PyYAML==5.3
