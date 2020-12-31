@@ -1,15 +1,30 @@
 ### Spack-Complete-Me (scm)
-This script is intend to help you to accelerate an installation process of HPC packages with Spack. 
+This script is intend to help you to accelerate an installation process of HPC 
+packages with Spack. 
 
-Spack is a great tool but installing packages can take too long especially when you are working on a system which has not been pre-configured: your personal computer, laptop or you are building Docker or Singularity images. A typical HPC package is build on top of some libraries, these libraries depends on others and so on. Moreover, a library or a package can depend on a building tool or tools. All of these can result in a huge building tree which Spack is going to install/compile from sources. However, a decent Linux distribution may have versions of low-level packages (building dependencies) which could be ok for your purposes i.e., `autoconf`, `automake`, `pkg-config`, `m4`, `tar`, etc. 
+Spack is a great tool but installing packages can take too long especially when 
+you are working on a system which has not been pre-configured: your personal 
+computer, laptop or you are building Docker or Singularity images. A typical 
+HPC package is build on top of some libraries, these libraries depends on others 
+and so on. Moreover, a library or a package can depend on a building tool or 
+tools. All of these can result in a huge building tree which Spack is going 
+to install/compile from sources. However, a decent Linux distribution may have 
+versions of low-level packages (building dependencies) which could be ok for 
+your purposes i.e., `autoconf, automake, pkg-config, m4, tar`, etc. 
 
-You can list all building dependencies that your typical installation needs in a simple yaml file and provide it as an input to the script. The script will try to find these packages, their version and installation paths. The results will be printed on stdout which can be redirected to `~/.spack/packages.yaml`.
+You can list all building dependencies that your typical installation needs 
+in a simple yaml file and provide it as an input to the script. The script will 
+try to find these packages, their versions and installation paths. The results 
+will be printed to `stdout` which can be redirected to `~/.spack/packages.yaml`.
 
-It is good to remember that once you add a package to `~/.spack/packages.yaml` as `buildable: False` you impose some constrains on your destination library or packages. Sometimes it can result in unsuccessful builds. Therefore, please, be careful while using this option.
+It is good to remember that once you add a package to `~/.spack/packages.yaml` 
+as `buildable: False` you impose some constrains on your destination library or 
+packages. Sometimes it can result in unsuccessful builds. Therefore, please, 
+be careful while using this option.
 
 #### Installation
 ```console
-git clone 
+git clone https://github.com/ravil-mobile/spack-complete-me.git
 cd  spack-complete-me
 pip install -e .
 ```
@@ -44,16 +59,17 @@ in `$HOME/.spack/scm-spec.yaml`
 | '-v', '--verbose'   | prints some debug information         |
 | '-i', '--indent'    | indent width (default is 2            |
 
-#### Input file structure:
+#### An input file example:
 ```
 spec:
   - tar
   - automake
   - autoconf
+  - pkg-config
   - python3
   - m4
   - xz
-  - go
+  - perl
 ```
 
 #### 

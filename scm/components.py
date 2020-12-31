@@ -38,7 +38,6 @@ class Version:
 
 def get_version(util_name: str) -> Union[str, None]:
   variants = ['--version', 'version', '-V', '-v']
-  #variants = ['--version']
 
   for version_query in variants:
     process = subprocess.run(f'{util_name} {version_query}',
