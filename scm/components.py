@@ -42,10 +42,10 @@ def get_version(util_name: str) -> Union[str, None]:
   for version_query in variants:
     process = subprocess.run(f'{util_name} {version_query}',
                              shell=True,
-                             capture_output=True,
-                             text=True)
+                             stdout=subprocess.PIPE,
+                             stderr=subprocess.PIPE)
 
-    text = process.stdout.replace('\n', ' ')
+    text = process.stdout.decode().replace('\n', ' ')
     version = Version.extract_version_from(text)
     if version:
       return version
@@ -56,11 +56,11 @@ def get_version(util_name: str) -> Union[str, None]:
 def set_util_path(util: Util):
   process = subprocess.run(f'which {util.name}',
                            shell=True,
-                           capture_output=True,
-                           text=True)
+                           stdout=subprocess.PIPE,
+                           stderr=subprocess.PIPE)
 
   if process.returncode == SysCode.ok:
-    util.path = process.stdout.rstrip()
+    util.path = process.stdout.decode().rstrip()
   else:
     raise ScmError(f'cannot get path of {util.name}\n {process.stderr}')
 

@@ -43,6 +43,11 @@ def main():
   for util in utils:
     set_util_path(util)
 
+
+  for util in utils:
+    if util.name in ['python2', 'python3']:
+      util.name = 'python'    
+
   dec = Decorator(with_header=args.header,
                   are_buildable=args.buildable,
                   indent_factor=args.indent)
