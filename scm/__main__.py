@@ -1,5 +1,7 @@
 from scm.file_manip import *
 from scm.components import *
+from os.path import expanduser
+from os.path import join as join_path
 import argparse
 
 
@@ -14,7 +16,7 @@ def main():
 
   spec_file = args.file
   if not args.file:
-    spec_file = '~/.spack/scm-spec.yaml'
+    spec_file = join_path(expanduser('~'), '.spack/scm-spec.yaml')
   package_list = get_packages_from_file(spec_file)
 
   if args.verbose:
