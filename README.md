@@ -39,12 +39,12 @@ python scm -f <path>/scm-spec.yaml
 To build Docker/Singularity images with Spack
  or when Spack is firstly installed on a system
 ```
-python scm -f <path>/scm-spec.yaml -H > /.spack/packages.yaml
+python scm -f <path>/scm-spec.yaml -H > ~/.spack/packages.yaml
 ```
 
 To populate an existing `packages.yaml` file with some packages
 ```
-python scm -f <path>/scm-spec.yaml >> /.spack/packages.yaml
+python scm -f <path>/scm-spec.yaml >> ~/.spack/packages.yaml
 ```
 
 if an input file is not provided `scm` will try to read one
