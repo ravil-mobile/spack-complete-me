@@ -7,7 +7,7 @@ import argparse
 
 def main():
   parser = argparse.ArgumentParser(description='find default packages for spack')
-  parser.add_argument('-f', '--file', type=str, help="shows output")
+  parser.add_argument('-f', '--file', type=str, help="input file")
   parser.add_argument('-b', '--buildable', action='store_true', help="denote as buildable")
   parser.add_argument('-H', '--header', action='store_true', help="decorate with `packages:` at the top")
   parser.add_argument('-v', '--verbose', action='store_true', help="verbose information")
